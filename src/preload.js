@@ -1,3 +1,16 @@
+//Config
+  //Canvas variables
+    var canvasWidth = 1200;
+    var canvasHeight = 800;
+
+  //Gamestate
+    var gameState = 0;
+
+  //Deck
+    var deck;
+    var bank;
+    var player;
+
 function preload() {
   // Images
   table = loadImage('data/table.png');
@@ -6,8 +19,5 @@ function preload() {
   bmusic = loadSound('data/background.mp3');
 
   // Videos
-
-  
-
   
 }
