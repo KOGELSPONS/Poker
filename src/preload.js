@@ -9,8 +9,9 @@
   //Deck
     var deck;
     var bank;
-    var player;
-
+    var player1;
+    
+  
 function preload() {
   // Images
   table = loadImage('data/table.png');
