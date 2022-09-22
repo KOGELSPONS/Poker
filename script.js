@@ -28,6 +28,31 @@ function keyPressed(){
     newshuffle();
     newhand();
   }
+  if (keyCode === 51) {
+    var hand1 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', 'Qs', 'Qh']);
+    var hand2 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', '3s', '3h']);
+    var winner = Hand.winners([hand1, hand2]);
+    console.log("------------------- Start")
+    console.log(winner);
+    console.log(winner[0].cardPool);
+    console.log("-------------------")
+    console.log(hand1);
+    console.log(hand1.descr);
+    console.log("-------------------")
+    console.log(hand2);
+    console.log(hand2.descr);
+    console.log("------------------- End")
+
+    if (winner.length == 2){
+      console.log("No Winner!")
+    } else if (winner[0].cardPool == hand1.cardPool){
+      console.log("winner:  1")
+      console.log("Won by:  " + hand1.descr);
+    }else if (winner[0].cardPool == hand2.cardPool){
+      console.log("winner:  2")
+      console.log("Won by:  " + hand2.descr);
+    }
+  }
 }
 
 function newshuffle(){
@@ -38,8 +63,8 @@ function newshuffle(){
 }
 
 function newhand(){
-  bank = new Hand(deck.cards.splice(0,5));
-  player1 = new Hand(deck.cards.splice(0,2));
+  bank = new CardHand(deck.cards.splice(0,5));
+  player1 = new CardHand(deck.cards.splice(0,2));
   //player2 = new Hand(deck.cards.splice(0,2));
   console.log(bank);
   console.log(player1);

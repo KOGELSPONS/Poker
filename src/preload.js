@@ -10,7 +10,9 @@
     var deck;
     var bank;
     var player1;
-    
+    var player2;
+
+  //database
   
 function preload() {
   // Images

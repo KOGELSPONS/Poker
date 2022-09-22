@@ -64,7 +64,7 @@ class Deck {
     }
 }
 
-class Hand {
+class CardHand {
 
     constructor(a) {
         this.cards = a;
