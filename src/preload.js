@@ -13,7 +13,12 @@
     var player2;
 
   //database
-  
+  var p1Chip
+  var p2Chip
+  var p3Chip
+  var p4Chip
+  var tChip
+
 function preload() {
   // Images
   table = loadImage('data/table.png');

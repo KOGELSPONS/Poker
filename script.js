@@ -8,11 +8,14 @@ function draw() {
     image(table, 100, 100, 1000, 600);
     bank.showHand(430,350);
     player1.showHand(550, 675);
-    //player2.showHand(800, 675);
+    player2.showHand(800, 675);
   }
 }
 
+
 function keyPressed(){
+
+
   if (keyCode === ENTER) {
     if (bmusic.isPlaying()){
       bmusic.stop();
@@ -28,6 +31,7 @@ function keyPressed(){
     newshuffle();
     newhand();
   }
+
   if (keyCode === 51) {
     var hand1 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', 'Qs', 'Qh']);
     var hand2 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', '3s', '3h']);
@@ -59,13 +63,21 @@ function newshuffle(){
   deck = new Deck;
   deck.shuffleDeck();
   console.log(deck);
-  
 }
 
 function newhand(){
   bank = new CardHand(deck.cards.splice(0,5));
   player1 = new CardHand(deck.cards.splice(0,2));
-  //player2 = new Hand(deck.cards.splice(0,2));
+  player2 = new CardHand(deck.cards.splice(0,2));
   console.log(bank);
   console.log(player1);
+  console.log(player2);
+}
+
+function addhands(){
+  
+}
+
+function myInputEvent() {
+  console.log('you are typing: ', this.value());
 }
