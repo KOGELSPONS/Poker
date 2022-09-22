@@ -14,7 +14,9 @@ function draw() {
 
 
 function keyPressed(){
+  if (keyCode === 32) {
 
+  }
 
   if (keyCode === ENTER) {
     if (bmusic.isPlaying()){
@@ -76,8 +78,4 @@ function newhand(){
 
 function addhands(){
   
-}
-
-function myInputEvent() {
-  console.log('you are typing: ', this.value());
 }
