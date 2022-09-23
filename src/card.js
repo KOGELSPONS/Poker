@@ -5,6 +5,8 @@ const colorNames = ["Clubs", "Diamonds", "Hearts", "Spades"];
 const faceDisplay = ["A", "2", "3", "4", "5", "6", "7",
                      "8", "9", "10", "J", "Q", "K"];
 const colorDisplay = ["♣️", "♦️", "♥️", "♠️"];
+const faceShortDisplay = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"];
+const colorShortNames = ["c", "d", "h", "s"];
 
 class Card {
 
@@ -14,6 +16,7 @@ class Card {
         this.dispFace = faceDisplay[f];
         this.dispSuit = colorDisplay[c];
         this.fullName = faceNames[f] + " of " + colorNames[c];
+        this.shortName = faceShortDisplay[f] + colorShortNames[c];
         if (c == 0 || c == 3) {
             this.color = [0, 0, 0];
         }

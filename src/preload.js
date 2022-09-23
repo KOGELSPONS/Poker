@@ -1,7 +1,6 @@
 //Config
   //Canvas variables
-    var canvasWidth = 1200;
-    var canvasHeight = 800;
+    var [WIDTH, W, HEIGHT, H, Frate] = [1200, 1200, 800, 800, 30]
 
   //Gamestate
     var gameState = 0;
@@ -13,11 +12,11 @@
     var player2;
 
   //database
-  var p1Chip
-  var p2Chip
-  var p3Chip
-  var p4Chip
-  var tChip
+  var p1Chip;
+  var p2Chip;
+  var p3Chip;
+  var p4Chip;
+  var tChip;
 
 function preload() {
   // Images
