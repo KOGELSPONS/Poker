@@ -7,6 +7,6 @@ timer = setInterval(function(){
     clearTimeout(timer);  // Stop the timer
     console.log("Times up!");
   } else {
-    counter--);
+    counter--;
   }
 }, 1000);

@@ -1,3 +1,5 @@
+//DRAW!!!
+
 function draw() {
 
   if(gameState == 0){
@@ -5,13 +7,22 @@ function draw() {
     newhand();
     gameState = 1;
   }else if(gameState == 1){
-    image(table, 100, 100, 1000, 600);
+    image(table, 0, 0, 1200, 800);
     bank.showHand(430,350);
     player1.showHand(550, 675);
     player2.showHand(800, 675);
+    updatetext();
   }
 }
 
+
+function updatetext(){
+  
+}
+
+
+
+//KEYPRESSED!!
 
 function keyPressed(){
   if (keyCode === 32) {
@@ -61,6 +72,8 @@ function keyPressed(){
   }
 }
 
+//CARDS!!
+
 function newshuffle(){
   deck = new Deck;
   deck.shuffleDeck();
@@ -76,6 +89,53 @@ function newhand(){
   console.log(player2);
 }
 
-function addhands(){
-  
+//CHIPS!!
+
+function addChips10(){
+  console.log(10);
+  addChips(10);
+	random(sounds).play();
+}
+
+function addChips100(){
+  console.log(100);
+  addChips(100);
+	random(sounds).play();
+}
+
+function addChips500(){
+  console.log(500);
+  addChips(500);
+	random(sounds).play();
+}
+
+function addChips(addedchips){
+  console.log("addedchips: " + addedchips)
+  betchips += addedchips;
+  console.log("betchips: " + betchips);
+  buttonReady = createButton('Ready: ' + betchips);
+  buttonReady.position(150, 0);
+  buttonReady.mousePressed(donebetting);
+}
+
+function donebetting(){
+  console.log("donebetting: " + betchips);
+  potupdate();
+  minimumbet = betchips;
+  console.log("minimumbet: " + minimumbet);
+  betchips = 0;
+  chipsPush.play();
+}
+
+function potupdate(){
+  //grab from sql
+  p1Pot = betchips;
+  p2Pot = 100;
+  p3Pot = 100;
+  p3Pot = 100;
+  //End
+  //Import to SQL
+  totalpot = p1Pot + p2Pot + p3Pot + p4Pot
+  console.log("totalpot: " + totalpot)
+  //End
 }

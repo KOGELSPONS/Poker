@@ -1,6 +1,6 @@
 function setup() {
   //Canvas
-    createCanvas(W, H);
+    canvas = createCanvas(W, H);
     background(255);
     frameRate(Frate);
 
@@ -11,8 +11,18 @@ function setup() {
   //Sound
     bmusic.setVolume(0.1);
 
-  //Slider
-    slider = createSlider(0, 360, 60, 40);
-    slider.position(10, 10);
-    slider.style('width', '80px');
+  //Button
+    button10 = createButton('10');
+    button10.position(0, 0);
+    button10.mousePressed(addChips10);
+
+    button100 = createButton('100');
+    button100.position(50, 0);
+    button100.mousePressed(addChips100);
+
+    button500 = createButton('500');
+    button500.position(100, 0);
+    button500.mousePressed(addChips500);
+
+  //Database
 }

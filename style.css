@@ -23,4 +23,7 @@ canvas {
   left:0px;
   z-index: -10;
 }
+.script-wrapper{
+  z-index: -1;
+}
 
