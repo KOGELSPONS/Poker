@@ -7,12 +7,14 @@ function draw() {
   else if(gameState == 1){
     newshuffle();
     newhand();
+    SQL();
     gameState = 2;
   }else if(gameState == 2){
     image(table, 0, 0, 1200, 800);
     updatehand();
     updatetext();
     updatebutton();
+    SQL();
   }
 }
 
@@ -30,21 +32,20 @@ function updatebutton(){
   buttonReady.html('Ready: ' + betchips);
 }
 
-//KEYPRESSED!!
+//SOMETHING PRESSED!
 
 function keyPressed(){
-  if (keyCode === 32 && gameState == 0) {
-    gameState = 1;
-    bmusic.loop();
-    jazz1.loop();
-  }
-
   if (keyCode === ENTER) {
     if (bmusic.isPlaying()){
       bmusic.stop();
     }
     else{
       bmusic.loop();
+    }if (jazz1.isPlaying()){
+      jazz1.stop();
+    }
+    else{
+      jazz1.loop();
     }
   }
   if (keyCode === 49) {
@@ -86,6 +87,29 @@ function keyPressed(){
     console.log(p2);
     console.log(game);
   }
+}
+
+function mouseClicked() {
+  //Console log click position
+  console.log(mouseX + " " + mouseY);
+  if (gameState == 0) {
+    if (mouseY > 120 && mouseY < 680) {
+      if (mouseX > 65 && mouseX < 400) {
+        console.log("HOST");
+        myname = 1;
+        gameState = 1;
+        bmusic.loop();
+        jazz1.loop();
+      } if (mouseX > 800 && mouseX < 1130) {
+        console.log("JOIN");
+        myname = 2;
+        gameState = 1;
+        bmusic.loop();
+        jazz1.loop();
+      }
+    }
+  }
+  
 }
 
 //CARDS!!

@@ -51,10 +51,10 @@
 function preload() {
   // Images
   table = loadImage('data/table.jpg');
-  homescreen = loadImage('data/homescreen.png')
+  homescreen = loadImage('data/menuBackground.png')
 
   // Sound
-  bmusic = loadSound('data/background.mp3');
+  bmusic = loadSound('data/sounds/background.mp3');
   sounds.push(chips1 = loadSound('data/sounds/chips1.mp3'));
   sounds.push(chips2 = loadSound('data/sounds/chips2.mp3'));
   sounds.push(chips3 = loadSound('data/sounds/chips3.mp3'));
