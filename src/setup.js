@@ -32,10 +32,6 @@ function setup() {
 
   //Cookies
   createCookie("myname", "", "10");
-
-  //Div
-  const div = document.createElement("div");
-  div.id = "fps";
-  div.innerHTML = "0";
+ 
   //Database
 }
