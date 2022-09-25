@@ -1,35 +1,56 @@
 //Config
   //Canvas variables
-    var [WIDTH, W, HEIGHT, H, Frate] = [1200, 1200, 800, 800, 30]
+    var [WIDTH, W, HEIGHT, H, Frate] = [1200, 1200, 800, 800, 15]
 
   //Gamestate
     var gameState = 0;
 
+  //Game Data + Player Data
+    var myname;
+    var game = {};
+    var p1 = {};
+    var p2 = {};
+
   //Deck
     var deck;
-    var bank;
-    var player1;
-    var player2;
+    game.Hand = null;
+    game.p1Hand = null;
+    game.p2Hand = null;
+
+  //Chip
+    var betchips = 0;
+
+  //LocalStorage
+    game.Pot = 0;
+    game.Round = 0;
+    game.Minbet = 0;
+    
 
   //Database
-  var p1Chip = 1000;
-  var p2Chip = 1000;
-  var p3Chip = 1000;
-  var p4Chip = 1000;
-  var p1Pot = 0;
-  var p2Pot = 0;
-  var p3Pot = 0;
-  var p4Pot = 0;
-  var tChip = 0;
-  var chips = 0;
-  var betchips = 0;
+    p1.Chips = 10000;
+    p2.Chips = 10000;
+
+    p1.Name = "Not Given";
+    p2.Name = "Not Given";
+
+    p1.Bet1 = 0;
+    p2.Bet1 = 0;
+
+    p1.Bet2 = 0;
+    p2.Bet2 = 0;
+
+    p1.Bet3 = 0;
+    p2.Bet3 = 0;
+
+    p1.Bet4 = 0;
+    p2.Bet4 = 0;
 
   //Sounds
-var sounds = [];
+    var sounds = [];
 
 function preload() {
   // Images
-  table = loadImage('data/table.png');
+  table = loadImage('data/table.jpg');
 
   // Sound
   bmusic = loadSound('data/background.mp3');

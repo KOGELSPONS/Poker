@@ -24,5 +24,9 @@ function setup() {
     button500.position(100, 0);
     button500.mousePressed(addChips500);
 
+    buttonReady = createButton('Ready: ' + betchips);
+    buttonReady.position(150, 0);
+    buttonReady.mousePressed(donebetting);
+
   //Database
 }

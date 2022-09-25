@@ -8,19 +8,25 @@ function draw() {
     gameState = 1;
   }else if(gameState == 1){
     image(table, 0, 0, 1200, 800);
-    bank.showHand(430,350);
-    player1.showHand(550, 675);
-    player2.showHand(800, 675);
+    updatehand();
     updatetext();
+    updatebutton();
   }
 }
 
+function updatehand(){
+  game.Hand.showHand(430,350);
+  game.p1Hand.showHand(550, 675);
+  game.p2Hand.showHand(800, 675);
+}
 
 function updatetext(){
   
 }
 
-
+function updatebutton(){
+  buttonReady.html('Ready: ' + betchips);
+}
 
 //KEYPRESSED!!
 
@@ -70,6 +76,12 @@ function keyPressed(){
       console.log("Won by:  " + hand2.descr);
     }
   }
+  
+  if (keyCode === 52) {
+    console.log(p1);
+    console.log(p2);
+    console.log(game);
+  }
 }
 
 //CARDS!!
@@ -81,12 +93,12 @@ function newshuffle(){
 }
 
 function newhand(){
-  bank = new CardHand(deck.cards.splice(0,5));
-  player1 = new CardHand(deck.cards.splice(0,2));
-  player2 = new CardHand(deck.cards.splice(0,2));
-  console.log(bank);
-  console.log(player1);
-  console.log(player2);
+  game.Hand = new CardHand(deck.cards.splice(0,5));
+  game.p1Hand = new CardHand(deck.cards.splice(0,2));
+  game.p2Hand = new CardHand(deck.cards.splice(0,2));
+  console.log(game.Hand);
+  console.log(game.p1Hand);
+  console.log(game.p2Hand);
 }
 
 //CHIPS!!
@@ -113,29 +125,24 @@ function addChips(addedchips){
   console.log("addedchips: " + addedchips)
   betchips += addedchips;
   console.log("betchips: " + betchips);
-  buttonReady = createButton('Ready: ' + betchips);
-  buttonReady.position(150, 0);
-  buttonReady.mousePressed(donebetting);
 }
 
 function donebetting(){
+  chipsPush.play();
   console.log("donebetting: " + betchips);
   potupdate();
   minimumbet = betchips;
   console.log("minimumbet: " + minimumbet);
   betchips = 0;
-  chipsPush.play();
 }
 
 function potupdate(){
   //grab from sql
   p1Pot = betchips;
-  p2Pot = 100;
-  p3Pot = 100;
-  p3Pot = 100;
+  p2Pot = betchips;
   //End
   //Import to SQL
-  totalpot = p1Pot + p2Pot + p3Pot + p4Pot
-  console.log("totalpot: " + totalpot)
+  totalpot = p1Pot + p2Pot;
+  console.log("totalpot: " + totalpot);
   //End
 }
