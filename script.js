@@ -1,12 +1,14 @@
 //DRAW!!!
 
 function draw() {
-
   if(gameState == 0){
+    image(homescreen, 0, 0, 1200, 800)
+  }
+  else if(gameState == 1){
     newshuffle();
     newhand();
-    gameState = 1;
-  }else if(gameState == 1){
+    gameState = 2;
+  }else if(gameState == 2){
     image(table, 0, 0, 1200, 800);
     updatehand();
     updatetext();
@@ -31,8 +33,10 @@ function updatebutton(){
 //KEYPRESSED!!
 
 function keyPressed(){
-  if (keyCode === 32) {
-
+  if (keyCode === 32 && gameState == 0) {
+    gameState = 1;
+    bmusic.loop();
+    jazz1.loop();
   }
 
   if (keyCode === ENTER) {

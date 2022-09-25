@@ -51,6 +51,7 @@
 function preload() {
   // Images
   table = loadImage('data/table.jpg');
+  homescreen = loadImage('data/homescreen.png')
 
   // Sound
   bmusic = loadSound('data/background.mp3');
@@ -59,6 +60,7 @@ function preload() {
   sounds.push(chips3 = loadSound('data/sounds/chips3.mp3'));
   sounds.push(chips4 = loadSound('data/sounds/chips4.mp3'));
   chipsPush = loadSound('data/sounds/chipsPush.mp3');
+  jazz1 = loadSound('data/sounds/jazz1.mp3');
   // Videos
   
 }
