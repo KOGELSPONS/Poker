@@ -31,35 +31,61 @@
 ?>
     
 <?php
+  function checkID(){
+    $ID = $_COOKIE["ID"];
+    $sql = "SELECT id FROM members WHERE id='$ID'";
+    $result = mysql_query($sql);
+
+    if(mysql_num_rows($result) >0){
+       //found
+    }else{
+       //not found
+    }
+  }
+  function createRecord(){
+    $ID = $_COOKIE["ID"];
+    $Game = $_COOKIE["Game"];
+    $P1 = $_COOKIE["P1"];
+    $P2 = $_COOKIE["P2"];
+    $sql = "INSERT INTO PokerGame (ID, Game, Player1, Player2)
+    VALUES ( $ID, $Game, $P1, $P2)";
+  }
   function pullGame(){
-    
+    $ID = $_COOKIE["ID"];
+    $sql = "SELECT Game FROM PokerGame WHERE ID=$ID";
+    $result = mysqli_query($conn, $sql);
   }
   function pushGame(){
-    
+    $ID = $_COOKIE["ID"];
+    $Game = $_COOKIE["Game"];
+    $sql = "UPDATE PokerGame SET Game=$Game WHERE id=$ID";
   }
   function pullP1(){
-    
+    $ID = $_COOKIE["ID"];
+    $sql = "SELECT Player1 FROM PokerGame WHERE ID=$ID";
+    $result = mysqli_query($conn, $sql);
   }
   function pushP1(){
-    
+    $ID = $_COOKIE["ID"];
+    $P1 = $_COOKIE["P1"];
+    $sql = "UPDATE PokerGame SET Player1=$P1 WHERE id=$ID";
   }
   function pullP2(){
-    
+    $ID = $_COOKIE["ID"];
+    $sql = "SELECT Player2 FROM PokerGame WHERE ID=$ID";
+    $result = mysqli_query($conn, $sql);
   }
   function pushP2(){
-    
+    $ID = $_COOKIE["ID"];
+    $P1 = $_COOKIE["P1"];
+    $sql = "UPDATE PokerGame SET Player2=$P2 WHERE id=$ID";
   }
+  function test(){
+    echo "Test111";
+  }
+
   echo $_COOKIE["myname"];
 ?>
-
-<script>
-  var pullGame = <?php echo pullGame();?>
-  var pushGame = <?php echo pushGame();?>
-  var pullP1 = <?php echo pullP1();?>
-  var pushP1 = <?php echo pushP1();?>
-  var pullP2 = <?php echo pullP2();?>
-  var pushP2 = <?php echo pushP2();?>
-</script>
 
     <div class="background"></div>
     <div class="script-wrapper">

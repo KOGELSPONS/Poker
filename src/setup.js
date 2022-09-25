@@ -5,10 +5,6 @@ function setup() {
     background(255);
     frameRate(Frate);
 
-  //Deck
-    deck = new Deck;
-    console.log(deck);
-
   //Sound
     bmusic.setVolume(0.15);
     jazz1.setVolume(0.2);
@@ -37,5 +33,9 @@ function setup() {
   //Cookies
   createCookie("myname", "", "10");
 
+  //Div
+  const div = document.createElement("div");
+  div.id = "fps";
+  div.innerHTML = "0";
   //Database
 }
