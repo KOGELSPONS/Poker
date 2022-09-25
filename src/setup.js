@@ -9,7 +9,8 @@ function setup() {
     console.log(deck);
 
   //Sound
-    bmusic.setVolume(0.1);
+    bmusic.setVolume(0.2);
+    jazz1.setVolume(0.2);
 
   //Button
     button10 = createButton('10');
