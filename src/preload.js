@@ -3,10 +3,12 @@
     var [WIDTH, W, HEIGHT, H, Frate] = [1200, 1200, 800, 800, 15]
 
   //Gamestate
-    var gameState = 0;
+    var gameState = -1;
 
   //Game Data + Player Data
     var myname;
+    var TijdelijkeID;
+    var ID;
     var game = {};
     var p1 = {};
     var p2 = {};

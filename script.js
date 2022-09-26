@@ -1,10 +1,13 @@
 //DRAW!!!
 
 function draw() {
-  if(gameState == 0){
+  if (gameState == -1){
+    generateID();
+    setTimeout('', 3000);
+    gameState = 0;
+  }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800)
-  }
-  else if(gameState == 1){
+  }else if(gameState == 1){
     newshuffle();
     newhand();
     SQL();
@@ -86,6 +89,18 @@ function keyPressed(){
     console.log(p1);
     console.log(p2);
     console.log(game);
+    PHPtest();
+  }
+  if (keyCode === 48) {
+    bake_cookie("p1", p1);
+    bake_cookie("p2", p2);
+    bake_cookie("game", game);
+    test1 = read_cookie("p1");
+    test2 = read_cookie("p2");
+    test3 = read_cookie("game");
+    console.log(test1);
+    console.log(test2);
+    console.log(test3);
   }
 }
 

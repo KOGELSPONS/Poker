@@ -31,7 +31,7 @@ function setup() {
     buttonReady.parent('holder');
 
   //Cookies
-  createCookie("myname", "", "10");
+    createCookie("myname", "", "10");
  
   //Database
 }

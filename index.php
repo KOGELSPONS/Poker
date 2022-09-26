@@ -35,11 +35,9 @@
     $ID = $_COOKIE["ID"];
     $sql = "SELECT id FROM members WHERE id='$ID'";
     $result = mysql_query($sql);
-
     if(mysql_num_rows($result) >0){
-       //found
-    }else{
-       //not found
+      setcookie("ID", 0, time() + (86400 * 10), "/");
+      echo $_COOKIE["Is Allreay here!"];
     }
   }
   function createRecord(){
@@ -81,11 +79,41 @@
     $sql = "UPDATE PokerGame SET Player2=$P2 WHERE id=$ID";
   }
   function test(){
-    echo "Test111";
+    echo $_COOKIE["p1"];
   }
-
-  echo $_COOKIE["myname"];
 ?>
+<script type="text/javascript">
+  
+    function PHPcheckID(){
+      var PHPID =<?php checkID();?>;
+      console.log(PHPID);
+    } 
+    function PHPcreateRecord(){
+      
+    }
+    function PHPpullGame(){
+      
+    }
+    function PHPpushGame(){
+      
+    }
+    function PHPpullP1(){
+      
+    }
+    function PHPpushP1(){
+      
+    }
+    function PHPpullP2(){
+      
+    }
+    function PHPpushP2(){
+      
+    }
+    function PHPtest(){
+      var PHPtest =<?php test();?>;
+      console.log(PHPtest);
+    }
+</script>
 
     <div class="background"></div>
     <div class="script-wrapper">

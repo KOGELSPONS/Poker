@@ -18,6 +18,19 @@ function SQL(){
   }
 }
 
+function generateID(){
+  TijdelijkeID = 10;
+  //TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
+  createCookie("ID", TijdelijkeID, "10");
+  setTimeout('', 2000);
+  if (read_cookie("ID") == 0){
+    console.log("FAIL");
+    generateID();
+  } else{
+    ID = generateID;
+  }
+}
+
 // Function to create the cookie
 function createCookie(name, value, days) {
     var expires;
@@ -33,4 +46,15 @@ function createCookie(name, value, days) {
       
     document.cookie = escape(name) + "=" + 
         escape(value) + expires + "; path=/";
+}
+
+function bake_cookie(name, value) {
+  var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+  document.cookie = cookie;
+}
+
+function read_cookie(name) {
+ var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+ result && (result = JSON.parse(result[1]));
+ return result;
 }
