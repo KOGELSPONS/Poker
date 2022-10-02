@@ -3,7 +3,7 @@
     var [WIDTH, W, HEIGHT, H, Frate] = [1200, 1200, 800, 800, 15]
 
   //Gamestate
-    var gameState = -1;
+    var gameState = 0;
 
   //Game Data + Player Data
     var myname;
@@ -12,6 +12,9 @@
     var game = {};
     var p1 = {};
     var p2 = {};
+
+  //HTML DATA
+    var chipsholder = document.getElementById("chipsholder");
 
   //Deck
     var deck;

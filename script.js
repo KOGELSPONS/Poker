@@ -2,8 +2,8 @@
 
 function draw() {
   if (gameState == -1){
-    generateID();
-    setTimeout('', 3000);
+    //generateID();
+    setTimeout('', 2000);
     gameState = 0;
   }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800)
@@ -115,12 +115,14 @@ function mouseClicked() {
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
+        buttonshow();
       } if (mouseX > 800 && mouseX < 1130) {
         console.log("JOIN");
         myname = 2;
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
+        buttonshow();
       }
     }
   }
@@ -146,21 +148,41 @@ function newhand(){
 
 //CHIPS!!
 
+function buttonshow(){
+  buttonFold.show();
+  buttonCall.show();
+  buttonReady.show();
+  chipsholder = document.getElementById("chipsholder");
+  chipsholder.style.display = "block";
+}
+  
+function addChips1(){
+  console.log(1);
+  addChips(1);
+	random(sounds).play();
+}
+
+function addChips5(){
+  console.log(5);
+  addChips(5);
+	random(sounds).play();
+}
+
 function addChips10(){
   console.log(10);
   addChips(10);
 	random(sounds).play();
 }
 
-function addChips100(){
-  console.log(100);
-  addChips(100);
+function addChips25(){
+  console.log(25);
+  addChips(25);
 	random(sounds).play();
 }
 
-function addChips500(){
-  console.log(500);
-  addChips(500);
+function addChips100(){
+  console.log(100);
+  addChips(100);
 	random(sounds).play();
 }
 

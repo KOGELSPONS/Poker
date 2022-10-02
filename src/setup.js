@@ -10,28 +10,25 @@ function setup() {
     jazz1.setVolume(0.2);
 
   //Button
-    button10 = createButton('10');
-    button10.position(0, 0);
-    button10.mousePressed(addChips10);
-    button10.parent('holder');
+    buttonFold = createButton('Fold');
+    buttonFold.position(10, H-150);
+    buttonFold.mousePressed(donebetting);
+    buttonFold.parent('holder');
+    buttonFold.hide();
 
-    button100 = createButton('100');
-    button100.position(50, 0);
-    button100.mousePressed(addChips100);
-    button100.parent('holder');
-
-    button500 = createButton('500');
-    button500.position(100, 0);
-    button500.mousePressed(addChips500);
-    button500.parent('holder');
+    buttonCall = createButton('Call');
+    buttonCall.position(10, H-100);
+    buttonCall.mousePressed(donebetting);
+    buttonCall.parent('holder');
+    buttonCall.hide();
 
     buttonReady = createButton('Ready: ' + betchips);
-    buttonReady.position(150, 0);
+    buttonReady.position(10, H-50);
     buttonReady.mousePressed(donebetting);
     buttonReady.parent('holder');
+    buttonReady.hide();
 
   //Cookies
-    createCookie("myname", "", "10");
- 
+    createCookie("myname", "", "0.00001");
   //Database
 }

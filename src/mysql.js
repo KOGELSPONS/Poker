@@ -19,8 +19,8 @@ function SQL(){
 }
 
 function generateID(){
-  TijdelijkeID = 10;
-  //TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
+  //TijdelijkeID = 10;
+  TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
   createCookie("ID", TijdelijkeID, "10");
   setTimeout('', 2000);
   if (read_cookie("ID") == 0){
