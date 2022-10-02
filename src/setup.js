@@ -12,7 +12,7 @@ function setup() {
   //Button
     buttonFold = createButton('Fold');
     buttonFold.position(10, H-150);
-    buttonFold.mousePressed(donebetting);
+    buttonFold.mousePressed(CreateSQL);
     buttonFold.parent('holder');
     buttonFold.hide();
 

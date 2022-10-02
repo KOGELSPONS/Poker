@@ -18,6 +18,15 @@ function SQL(){
   }
 }
 
+function CreateSQL(){
+  fetch("https://localhost:8000/PHP/database.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+}
+
 function generateID(){
   //TijdelijkeID = 10;
   TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
