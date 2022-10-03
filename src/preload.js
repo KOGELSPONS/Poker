@@ -12,7 +12,10 @@
     var game = {};
     var p1 = {};
     var p2 = {};
-
+    let playerProfile1;
+    let playerProfile2;
+    let playerProfile3;
+    let playerProfile4;
   //HTML DATA
     var chipsholder = document.getElementById("chipsholder");
 
@@ -20,7 +23,9 @@
     var deck;
     game.Hand = null;
     game.p1Hand = null;
-    game.p2Hand = null;
+    game.p2Hand = null; 
+    game.p3Hand = null;
+    game.p4Hand = null;
 
   //Chip
     var betchips = 0;

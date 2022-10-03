@@ -10,21 +10,25 @@ function draw() {
   }else if(gameState == 1){
     newshuffle();
     newhand();
-    SQL();
+    //SQL();
     gameState = 2;
+    playerGameProfile();
   }else if(gameState == 2){
     image(table, 0, 0, 1200, 800);
     updatehand();
     updatetext();
     updatebutton();
-    SQL();
+    //SQL();
+    playerGameProfile();
   }
 }
 
 function updatehand(){
-  game.Hand.showHand(430,350);
-  game.p1Hand.showHand(550, 675);
-  game.p2Hand.showHand(800, 675);
+  game.Hand.showHand(430,250);
+  game.p1Hand.showHand(100,100);
+  game.p2Hand.showHand(100,410);
+  game.p3Hand.showHand(900,100);
+  game.p4Hand.showHand(900,410);
 }
 
 function updatetext(){
@@ -141,6 +145,8 @@ function newhand(){
   game.Hand = new CardHand(deck.cards.splice(0,5));
   game.p1Hand = new CardHand(deck.cards.splice(0,2));
   game.p2Hand = new CardHand(deck.cards.splice(0,2));
+  game.p3Hand = new CardHand(deck.cards.splice(0,2));
+  game.p4Hand = new CardHand(deck.cards.splice(0,2));
   console.log(game.Hand);
   console.log(game.p1Hand);
   console.log(game.p2Hand);
@@ -154,6 +160,13 @@ function buttonshow(){
   buttonReady.show();
   chipsholder = document.getElementById("chipsholder");
   chipsholder.style.display = "block";
+}
+
+function playerGameProfile(){
+  playerProfile1.show();
+  playerProfile2.show();
+  playerProfile3.show();
+  playerProfile4.show();
 }
   
 function addChips1(){

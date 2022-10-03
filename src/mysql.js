@@ -1,11 +1,23 @@
 function SQL(){
   if (myname == 1){
     createCookie("myname", "1", "10");
+    bake_cookie("p1", p1);
+    bake_cookie("p2", 'null');
+    bake_cookie("game", game);
+    test1 = read_cookie("p1");
+    test2 = read_cookie("p2");
+    test3 = read_cookie("game");
+    console.log(test1);
+    console.log(test2);
+    console.log(test3);
     //PUSH game
     //PUSH p1
     //PULL p2
   }else if (myname == 2){
     createCookie("myname", "2", "10");
+    bake_cookie("p2", p2);
+    test2 = read_cookie("p2");
+    console.log(test2);
     //PULL game
     //PULL p1
     //PUSH p2
@@ -19,7 +31,25 @@ function SQL(){
 }
 
 function CreateSQL(){
-  fetch("https://localhost:8000/PHP/database.php", {
+  fetch("https://pokergame.kogelspons.repl.co//PHP/database.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+}
+
+function SQLPlayer1(){
+  fetch("https://pokergame.kogelspons.repl.co/PHP/player.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+    },
+  })
+}
+
+function SQLPlayer2(){
+  fetch("https://pokergame.kogelspons.repl.co//PHP/player2.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -32,12 +62,8 @@ function generateID(){
   TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
   createCookie("ID", TijdelijkeID, "10");
   setTimeout('', 2000);
-  if (read_cookie("ID") == 0){
-    console.log("FAIL");
-    generateID();
-  } else{
-    ID = generateID;
-  }
+  ID = read_cookie("ID");
+  console.log(ID);
 }
 
 // Function to create the cookie

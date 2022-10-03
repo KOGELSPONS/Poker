@@ -18,6 +18,7 @@
       <script src="src/cardsolver.js"></script>
       <script src="src/setup.js"></script>
       <script src="src/mysql.js"></script>
+      <script src="src/playerProfile.js"></script>
       <script src="script.js"></script>
     </div>
     <div id="holder" style="position: relative;"> 
