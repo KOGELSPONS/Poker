@@ -51,7 +51,5 @@ function setup() {
     buttonTest3.parent('holder');
 
     generateID();
-  //Cookies
-    createCookie("myname", "", "0.00001");
   //Database
 }

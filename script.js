@@ -19,7 +19,7 @@ function draw() {
     updatetext();
     updatebutton();
   }
-    playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1money);
+  playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1money);
   playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", p2money);
   playerProfile3 = new PlayerProfile(900,100,200,200, "Player 3", p3money);
   playerProfile4 = new PlayerProfile(900,410,200,200, "Player 4", p4money);

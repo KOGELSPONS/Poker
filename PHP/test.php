@@ -8,7 +8,7 @@ $dbname = "dbs8648412";
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-  
+  die("Connection could not be established");
 }
 
 $ID = $_COOKIE["ID"];
@@ -21,7 +21,7 @@ $P2 = $_COOKIE["p2"];
 echo $P2;
 
 $sql = "INSERT INTO PokerGame (ID, Game, Player1, Player2)
-VALUES ($ID, 'Test', 'Test', 'Test')";
+VALUES ($ID, $Game, $P1, $P2)";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
