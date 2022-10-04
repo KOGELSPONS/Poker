@@ -15,20 +15,20 @@ function draw() {
     playerGameProfile();
   }else if(gameState == 2){
     image(table, 0, 0, 1200, 800);
+    playerGameProfile();
     updatehand();
     updatetext();
     updatebutton();
     //SQL();
-    playerGameProfile();
   }
 }
 
 function updatehand(){
   game.Hand.showHand(430,250);
-  game.p1Hand.showHand(100,100);
-  game.p2Hand.showHand(100,410);
-  game.p3Hand.showHand(900,100);
-  game.p4Hand.showHand(900,410);
+  game.p1Hand.showHand(100,200);
+  game.p2Hand.showHand(100,510);
+  game.p3Hand.showHand(900,200);
+  game.p4Hand.showHand(900,510);
 }
 
 function updatetext(){
