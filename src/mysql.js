@@ -1,27 +1,31 @@
 function SQL(){
   if (myname == 1){
-    generateID();
-    createCookie("myname", "1");
     bake_cookie("p1", p1);
-    createCookie("p2", 'Player2 Opvuller');
     bake_cookie("game", game);
-    test1 = read_cookie("p1");
-    //test2 = read_cookie("p2");
-    test3 = read_cookie("game");
-    console.log(test1);
-    //console.log(test2);
-    console.log(test3);
-    //PUSH game
-    //PUSH p1
-    //PULL p2
+    SQLPlayer1();
+
+    //Read Cookie
+    p2 = read_cookie("p2");
+
+    //Dev
+    console.log(p1);
+    console.log(p2);
+    console.log(game);
+    
   }else if (myname == 2){
     createCookie("myname", "2");
     bake_cookie("p2", p2);
-    test2 = read_cookie("p2");
-    console.log(test2);
-    //PULL game
-    //PULL p1
-    //PUSH p2
+    SQLPlayer2();
+
+    //Read Cookie
+    p1 = read_cookie("p1");
+    game = read_cookie("game");
+
+    //Dev
+    console.log(p1);
+    console.log(p2);
+    console.log(game);
+    
   }else {
     console.log("||||||||||||||||||||||||||||||||||||||||")
     console.log("||||||||||||||||||||||||||||||||||||||||")
@@ -33,42 +37,31 @@ function SQL(){
 
 
 function CreateSQL(){
-  fetch("https://pokergetscammed.eu/PHP/test.php", {
+  fetch("https://pokergetscammed.eu/PHP/database.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    },
+    headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",},
   })
 }
 
 function SQLPlayer1(){
   fetch("https://pokergetscammed.eu/PHP/player.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    },
+    headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",},
   })
 }
 
 function SQLPlayer2(){
   fetch("https://pokergetscammed.eu/PHP/player2.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    },
+    headers: {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",},
   })
 }
 
 function generateID(){
-  //TijdelijkeID = 10;
-  TijdelijkeID = Math.floor(100000 + Math.random() * 900000);
-  createCookie("ID", TijdelijkeID);
-  setTimeout('', 2000);
-  ID = read_cookie("ID");
-  console.log(ID);
+  ID = Math.floor(100000 + Math.random() * 900000);
+  createCookie("ID", ID);
 }
 
-// Function to create the cookie
 function createCookie(name, value) {
   var ccookie = [name, '=', value, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
   document.cookie = ccookie;

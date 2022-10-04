@@ -1,4 +1,15 @@
 <?php
+$servername = "rdbms.strato.de";
+$username = "dbu2034445";
+$password = "#Manderijn118";
+$dbname = "dbs8648412";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection could not be established");
+}
   //pushGame
     $ID = $_COOKIE["ID"];
     $Game = $_COOKIE["Game"];
@@ -13,5 +24,7 @@
     $ID = $_COOKIE["ID"];
     $sql = "SELECT Player2 FROM PokerGame WHERE ID=$ID";
     $result = mysqli_query($conn, $sql);
+
+  
   }
 ?>

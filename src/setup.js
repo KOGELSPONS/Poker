@@ -14,6 +14,7 @@
     var p2 = {};
     let playerProfile1;
     let playerProfile2;
+    var activebutton = false;
   //HTML DATA
     var chipsholder = document.getElementById("chipsholder");
 
@@ -36,20 +37,24 @@
     p1.Chips = 1000;
     p2.Chips = 1000;
 
-    p1.Name = "Not Given";
-    p2.Name = "Not Given";
+    p1.Name = "Player 1";
+    p2.Name = "Player 2";
 
+    //Blind bet
     p1.Bet1 = 0;
-    p2.Bet1 = 0;
+    p2.Bet1 = 10;
 
+    //Flush
     p1.Bet2 = 0;
-    p2.Bet2 = 0;
+    p2.Bet2 = 10;
 
+    //Pre River
     p1.Bet3 = 0;
-    p2.Bet3 = 0;
+    p2.Bet3 = 10;
 
-    p1.Bet4 = 0;
-    p2.Bet4 = 0;
+    //River
+    p1.Bet4 = 0; // -1 fold
+    p2.Bet4 = 10; // -1 fold
 
   //Sounds
     var sounds = [];
@@ -91,7 +96,7 @@ function setup() {
     //Game
     buttonFold = createButton('Fold');
     buttonFold.position(10, H-150);
-    buttonFold.mousePressed(donebetting);
+    buttonFold.mousePressed(fold);
     buttonFold.parent('holder');
     buttonFold.hide();
 
@@ -113,20 +118,10 @@ function setup() {
     buttonTest1.mousePressed(CreateSQL);
     buttonTest1.parent('holder');
 
-    buttonTest2 = createButton('Player1');
+    buttonTest2 = createButton('SQL');
     buttonTest2.position(0, 50);
-    buttonTest2.mousePressed(SQLPlayer1);
+    buttonTest2.mousePressed(SQL);
     buttonTest2.parent('holder');
-
-    buttonTest3 = createButton('Player2');
-    buttonTest3.position(0, 100);
-    buttonTest3.mousePressed(SQLPlayer2);
-    buttonTest3.parent('holder');
-
-    buttonTest4 = createButton('SQL');
-    buttonTest4.position(0, 150);
-    buttonTest4.mousePressed(SQL);
-    buttonTest4.parent('holder');
 
     generateID();
   //Database

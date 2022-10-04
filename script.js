@@ -1,26 +1,24 @@
 //DRAW!!!
 function draw() {
   if (gameState == -1){
-    //generateID();
-    setTimeout('', 2000);
+    hidebutton(); 
+    generateID();
     gameState = 0;
   }else if(gameState == 0){
-    image(homescreen, 0, 0, 1200, 800)
+    image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 1){
+    //Loading screen (When everything loads)
     newshuffle();
     newhand();
+    game.Round = 1;
     gameState = 2;
   }else if(gameState == 2){
-    image(table, 0, 0, 1200, 800);
-    updatehand();
-    updatetext();
-    updatebutton();
+    pokergame();
+    updatevisual();
   }
-  playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1.Chips);
-  playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", p2.Chips);
 }
 
-function game(){
+function pokergame(){
   //Checking if a player folded
   if (p1.Bet4 == -1){
     playerwin();
@@ -31,29 +29,27 @@ function game(){
   else{
     //Checking if you are player 1 or 20
     if (myname == 1){
+      //SQL();
       gamep1();
-      SQL();
     } else if (myname == 2){
+      //SQL();
       gamep2();
-      SQL();
     }
   }
 }
 
-function updatehand(){
+function updatevisual(){
+  image(table, 0, 0, 1200, 800);
+  playerProfile1 = new PlayerProfile(100,100,200,200, p1.Name, p1.Chips);
+  playerProfile2 = new PlayerProfile(100,410,200,200, p2.Name, p2.Chips);
   playerProfile1.show();
   playerProfile2.show();
   game.Hand.showHand(430,250);
   game.p1Hand.showHand(100,200);
   game.p2Hand.showHand(100,510);
-}
-
-function updatetext(){
-  
-}
-
-function updatebutton(){
-  buttonReady.html('Ready: ' + betchips);
+  if (activebutton) {
+    buttonReady.html('Ready: ' + betchips);
+  }
 }
 
 //SOMETHING PRESSED!
@@ -62,25 +58,23 @@ function keyPressed(){
   if (keyCode === ENTER) {
     if (bmusic.isPlaying()){
       bmusic.stop();
-    }
-    else{
+    } else{
       bmusic.loop();
     }if (jazz1.isPlaying()){
       jazz1.stop();
-    }
-    else{
+    } else{
       jazz1.loop();
     }
   }
-  if (keyCode === 49) {
+  if (keyCode === 49) { // 1
     newhand();
   }
-  if (keyCode === 50) {
+  if (keyCode === 50) { // 2
     newshuffle();
     newhand();
   }
 
-  if (keyCode === 51) {
+  if (keyCode === 51) { // 3
     var hand1 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', 'Qs', 'Qh']);
     var hand2 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', '3s', '3h']);
     var winner = Hand.winners([hand1, hand2]);
@@ -106,11 +100,10 @@ function keyPressed(){
     }
   }
   
-  if (keyCode === 52) {
+  if (keyCode === 52) { // 4
     console.log(p1);
     console.log(p2);
     console.log(game);
-    PHPtest();
   }
 }
 
@@ -120,25 +113,31 @@ function mouseClicked() {
   if (gameState == 0) {
     if (mouseY > 120 && mouseY < 680) {
       if (mouseX > 65 && mouseX < 400) {
-        
         console.log("HOST");
         myname = 1;
+        createCookie("myname", myname);
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
-        showbutton();
+        showfullbutton();
       } if (mouseX > 800 && mouseX < 1130) {
-        
         console.log("JOIN");
         myname = 2;
+        createCookie("myname", myname);
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
-        showbutton();
+        showfullbutton();
       }
     }
   }
   
+}
+
+//Winning /Losing
+
+function playerwin(){
+  gameState = -1;
 }
 
 //CARDS!!
@@ -160,12 +159,35 @@ function newhand(){
 
 //CHIPS!!
 
-function showbutton(){
+function fold(){
+  if (myname == 1){
+    p1.Bet4 = -1;
+  } else if (myname == 2){
+    p2.Bet4 = -1;
+  }
+}
+
+function showfullbutton(){
   buttonFold.show();
   buttonCall.show();
   buttonReady.show();
   chipsholder = document.getElementById("chipsholder");
   chipsholder.style.display = "block";
+  activebutton = true;
+}
+
+function showlittlebutton(){
+  buttonFold.show();
+  buttonCall.show();
+}
+
+function hidebutton(){
+  activebutton = false;
+  buttonFold.hide();
+  buttonCall.hide();
+  buttonReady.hide();
+  chipsholder = document.getElementById("chipsholder");
+  chipsholder.style.display = "none";
 }
   
 function addChips1(){
@@ -209,20 +231,26 @@ function donebetting(){
   } else if (myname ==2){
      p2.Chips = p2.Chips - betchips;
   }
-  console.log("donebetting: " + betchips);
-  potupdate();
-  minimumbet = betchips;
-  console.log("minimumbet: " + minimumbet);
+  if (myname == 1){
+    if (game.Round == 1){
+      p1.Bet1 = betchips;
+    } else if (game.Round == 2){
+      p1.Bet2 = betchips;
+    } else if (game.Round == 3){
+      p1.Bet3 = betchips;
+    } else if (game.Round == 4){
+      p1.Bet4 = betchips;
+    }
+  }else if (myname == 2){
+    if (game.Round == 1){
+      p2.Bet1 = betchips;
+    } else if (game.Round == 2){
+      p2.Bet2 = betchips;
+    } else if (game.Round == 3){
+      p2.Bet3 = betchips;
+    } else if (game.Round == 4){
+      p2.Bet4 = betchips;
+    }
+  }
   betchips = 0;
-}
-
-function potupdate(){
-  //grab from sql
-  p1Pot = betchips;
-  p2Pot = betchips;
-  //End
-  //Import to SQL
-  totalpot = p1Pot + p2Pot;
-  console.log("totalpot: " + totalpot);
-  //End
 }
