@@ -10,7 +10,6 @@ function draw() {
   }else if(gameState == 1){
     newshuffle();
     newhand();
-    //SQL();
     gameState = 2;
     playerGameProfile();
   }else if(gameState == 2){
@@ -19,7 +18,6 @@ function draw() {
     updatehand();
     updatetext();
     updatebutton();
-    //SQL();
   }
 }
 
@@ -94,17 +92,6 @@ function keyPressed(){
     console.log(p2);
     console.log(game);
     PHPtest();
-  }
-  if (keyCode === 48) {
-    bake_cookie("p1", p1);
-    bake_cookie("p2", p2);
-    bake_cookie("game", game);
-    test1 = read_cookie("p1");
-    test2 = read_cookie("p2");
-    test3 = read_cookie("game");
-    console.log(test1);
-    console.log(test2);
-    console.log(test3);
   }
 }
 

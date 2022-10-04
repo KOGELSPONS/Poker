@@ -1,5 +1,6 @@
 function SQL(){
   if (myname == 1){
+    generateID();
     createCookie("myname", "1", "10");
     bake_cookie("p1", p1);
     bake_cookie("p2", 'null');
@@ -30,8 +31,9 @@ function SQL(){
   }
 }
 
+
 function CreateSQL(){
-  fetch("https://pokergame.kogelspons.repl.co//PHP/database.php", {
+  fetch("https://pokergame.kogelspons.repl.co//PHP/test.php", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
