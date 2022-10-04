@@ -87,6 +87,7 @@ function createCookie(name, value, days) {
 
 function bake_cookie(name, value) {
   var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+  console.log(typeof cookie);
   document.cookie = cookie;
 }
 

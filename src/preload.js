@@ -16,6 +16,10 @@
     let playerProfile2;
     let playerProfile3;
     let playerProfile4;
+    var p1money = 500
+    var p2money = 500
+    var p3money = 500
+    var p4money = 500
   //HTML DATA
     var chipsholder = document.getElementById("chipsholder");
 

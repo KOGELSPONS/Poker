@@ -2,12 +2,10 @@ function setup() {
   //Canvas
     var canvas = createCanvas(W, H);
     canvas.parent('holder');
+  
     background(255);
     frameRate(Frate);
-    playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", 500);
-    playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", 500);
-    playerProfile3 = new PlayerProfile(900,100,200,200, "Player 3", 500);
-    playerProfile4 = new PlayerProfile(900,410,200,200, "Player 4", 500);
+
   //Sound
     bmusic.setVolume(0.15);
     jazz1.setVolume(0.2);

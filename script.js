@@ -19,6 +19,10 @@ function draw() {
     updatetext();
     updatebutton();
   }
+    playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1money);
+  playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", p2money);
+  playerProfile3 = new PlayerProfile(900,100,200,200, "Player 3", p3money);
+  playerProfile4 = new PlayerProfile(900,410,200,200, "Player 4", p4money);
 }
 
 function updatehand(){
@@ -160,30 +164,35 @@ function addChips1(){
   console.log(1);
   addChips(1);
 	random(sounds).play();
+  p1money = p1money -1;
 }
 
 function addChips5(){
   console.log(5);
   addChips(5);
 	random(sounds).play();
+  p1money = p1money -5;
 }
 
 function addChips10(){
   console.log(10);
   addChips(10);
 	random(sounds).play();
+  p1money = p1money -10;
 }
 
 function addChips25(){
   console.log(25);
   addChips(25);
 	random(sounds).play();
+  p1money = p1money -25;
 }
 
 function addChips100(){
   console.log(100);
   addChips(100);
 	random(sounds).play();
+  p1money = p1money -100;
 }
 
 function addChips(addedchips){
