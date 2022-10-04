@@ -24,7 +24,5 @@ if ($conn->connect_error) {
     $ID = $_COOKIE["ID"];
     $sql = "SELECT Player2 FROM PokerGame WHERE ID=$ID";
     $result = mysqli_query($conn, $sql);
-
-  
-  }
+    echo $result;
 ?>
