@@ -12,6 +12,4 @@
     $ID = $_COOKIE["ID"];
     $P1 = $_COOKIE["P1"];
     $sql = "UPDATE PokerGame SET Player2=$P2 WHERE id=$ID";
-  //test
-    echo "Player2: " + rand(1,200);
 ?>

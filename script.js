@@ -1,5 +1,4 @@
 //DRAW!!!
-
 function draw() {
   if (gameState == -1){
     //generateID();
@@ -11,26 +10,42 @@ function draw() {
     newshuffle();
     newhand();
     gameState = 2;
-    playerGameProfile();
   }else if(gameState == 2){
     image(table, 0, 0, 1200, 800);
-    playerGameProfile();
     updatehand();
     updatetext();
     updatebutton();
   }
-  playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1money);
-  playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", p2money);
-  playerProfile3 = new PlayerProfile(900,100,200,200, "Player 3", p3money);
-  playerProfile4 = new PlayerProfile(900,410,200,200, "Player 4", p4money);
+  playerProfile1 = new PlayerProfile(100,100,200,200, "Player 1", p1.Chips);
+  playerProfile2 = new PlayerProfile(100,410,200,200, "Player 2", p2.Chips);
+}
+
+function game(){
+  //Checking if a player folded
+  if (p1.Bet4 == -1){
+    playerwin();
+  } else if (p2.Bet4 == -1){
+    playerwin();
+  }
+  //You start the game if nobody folded 
+  else{
+    //Checking if you are player 1 or 20
+    if (myname == 1){
+      gamep1();
+      SQL();
+    } else if (myname == 2){
+      gamep2();
+      SQL();
+    }
+  }
 }
 
 function updatehand(){
+  playerProfile1.show();
+  playerProfile2.show();
   game.Hand.showHand(430,250);
   game.p1Hand.showHand(100,200);
   game.p2Hand.showHand(100,510);
-  game.p3Hand.showHand(900,200);
-  game.p4Hand.showHand(900,510);
 }
 
 function updatetext(){
@@ -101,23 +116,25 @@ function keyPressed(){
 
 function mouseClicked() {
   //Console log click position
-  console.log(mouseX + " " + mouseY);
+  //console.log(mouseX + " " + mouseY);
   if (gameState == 0) {
     if (mouseY > 120 && mouseY < 680) {
       if (mouseX > 65 && mouseX < 400) {
+        
         console.log("HOST");
         myname = 1;
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
-        buttonshow();
+        showbutton();
       } if (mouseX > 800 && mouseX < 1130) {
+        
         console.log("JOIN");
         myname = 2;
         gameState = 1;
         bmusic.loop();
         jazz1.loop();
-        buttonshow();
+        showbutton();
       }
     }
   }
@@ -136,8 +153,6 @@ function newhand(){
   game.Hand = new CardHand(deck.cards.splice(0,5));
   game.p1Hand = new CardHand(deck.cards.splice(0,2));
   game.p2Hand = new CardHand(deck.cards.splice(0,2));
-  game.p3Hand = new CardHand(deck.cards.splice(0,2));
-  game.p4Hand = new CardHand(deck.cards.splice(0,2));
   console.log(game.Hand);
   console.log(game.p1Hand);
   console.log(game.p2Hand);
@@ -145,64 +160,55 @@ function newhand(){
 
 //CHIPS!!
 
-function buttonshow(){
+function showbutton(){
   buttonFold.show();
   buttonCall.show();
   buttonReady.show();
   chipsholder = document.getElementById("chipsholder");
   chipsholder.style.display = "block";
 }
-
-function playerGameProfile(){
-  playerProfile1.show();
-  playerProfile2.show();
-  playerProfile3.show();
-  playerProfile4.show();
-}
   
 function addChips1(){
   console.log(1);
   addChips(1);
 	random(sounds).play();
-  p1money = p1money -1;
 }
 
 function addChips5(){
   console.log(5);
   addChips(5);
 	random(sounds).play();
-  p1money = p1money -5;
 }
 
 function addChips10(){
   console.log(10);
   addChips(10);
 	random(sounds).play();
-  p1money = p1money -10;
 }
 
 function addChips25(){
   console.log(25);
   addChips(25);
 	random(sounds).play();
-  p1money = p1money -25;
 }
 
 function addChips100(){
   console.log(100);
   addChips(100);
 	random(sounds).play();
-  p1money = p1money -100;
 }
 
 function addChips(addedchips){
-  console.log("addedchips: " + addedchips)
   betchips += addedchips;
-  console.log("betchips: " + betchips);
 }
 
 function donebetting(){
   chipsPush.play();
+  if (myname == 1){
+    p1.Chips = p1.Chips - betchips;
+  } else if (myname ==2){
+     p2.Chips = p2.Chips - betchips;
+  }
   console.log("donebetting: " + betchips);
   potupdate();
   minimumbet = betchips;

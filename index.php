@@ -13,16 +13,16 @@
   <body>
     <div class="background"></div>
     <div class="script-wrapper">
-      <script src="src/preload.js"></script>
       <script src="src/card.js"></script>
       <script src="src/cardsolver.js"></script>
       <script src="src/setup.js"></script>
       <script src="src/mysql.js"></script>
       <script src="src/playerProfile.js"></script>
+      <script src="src/game/player1.js"></script>
+      <script src="src/game/player2.js"></script>
       <script src="script.js"></script>
     </div>
     <div id="holder" style="position: relative;"> 
-      
       <div id="chipsholder" class="chips">
 		    <div class="pokerchip white" onclick="addChips1();"></div>
 		    <div class="pokerchip red" onclick="addChips5();"></div>

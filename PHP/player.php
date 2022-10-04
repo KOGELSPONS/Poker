@@ -14,6 +14,4 @@
     $sql = "SELECT Player2 FROM PokerGame WHERE ID=$ID";
     $result = mysqli_query($conn, $sql);
   }
-  //test
-    echo "Player1: " + rand(1,200);
 ?>
