@@ -8,6 +8,9 @@ function draw() {
     image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 1){
     //Loading screen (When everything loads)
+    setInterval(function(){ 
+      sec += 1;
+    }, 1000);
     newshuffle();
     newhand();
     game.Round = 1;
@@ -15,6 +18,8 @@ function draw() {
   }else if(gameState == 2){
     pokergame();
     updatevisual();
+      gamep1();
+
   }
 }
 
@@ -42,8 +47,10 @@ function updatevisual(){
   image(table, 0, 0, 1200, 800);
   playerProfile1 = new PlayerProfile(100,100,200,200, p1.Name, p1.Chips);
   playerProfile2 = new PlayerProfile(100,410,200,200, p2.Name, p2.Chips);
+
   playerProfile1.show();
   playerProfile2.show();
+  //popup.show();
   game.Hand.showHand(430,250);
   game.p1Hand.showHand(100,200);
   game.p2Hand.showHand(100,510);
@@ -75,9 +82,11 @@ function keyPressed(){
   }
 
   if (keyCode === 51) { // 3
-    var hand1 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', 'Qs', 'Qh']);
-    var hand2 = Hand.solve(['Ad', 'As', 'Jc', 'Th', '2d', '3s', '3h']);
+    
+    var hand1 = Hand.solve([game.p1Hand.cards[0].shortName, game.p1Hand.cards[1].shortName, game.Hand.cards[0].shortName, game.Hand.cards[1].shortName, game.Hand.cards[2].shortName, game.Hand.cards[3].shortName, 'Qh',]);
+    var hand2 = Hand.solve([game.p2Hand.cards[0].shortName, game.p2Hand.cards[1].shortName, 'Jc', 'Th', '2d', '3s', '3h']);
     var winner = Hand.winners([hand1, hand2]);
+    
     console.log("------------------- Start")
     console.log(winner);
     console.log(winner[0].cardPool);

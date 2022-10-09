@@ -14,10 +14,13 @@
     var p2 = {};
     let playerProfile1;
     let playerProfile2;
+    let popup ;
     var activebutton = false;
+    var sec;
   //HTML DATA
     var chipsholder = document.getElementById("chipsholder");
-
+    var popupFade = 255;
+    var fadeAmount = -3
   //Deck
     var deck;
     game.Hand = null;
@@ -46,15 +49,15 @@
 
     //Flush
     p1.Bet2 = 0;
-    p2.Bet2 = 10;
+    p2.Bet2 = 0;
 
     //Pre River
     p1.Bet3 = 0;
-    p2.Bet3 = 10;
+    p2.Bet3 = 0;
 
     //River
     p1.Bet4 = 0; // -1 fold
-    p2.Bet4 = 10; // -1 fold
+    p2.Bet4 = 0; // -1 fold
 
   //Sounds
     var sounds = [];

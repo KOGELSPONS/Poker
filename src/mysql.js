@@ -13,7 +13,6 @@ function SQL(){
     console.log(game);
     
   }else if (myname == 2){
-    createCookie("myname", "2");
     bake_cookie("p2", p2);
     SQLPlayer2();
 
@@ -58,7 +57,8 @@ function SQLPlayer2(){
 }
 
 function generateID(){
-  ID = Math.floor(100000 + Math.random() * 900000);
+  ID = 10;
+  //ID = Math.floor(100000 + Math.random() * 900000);
   createCookie("ID", ID);
 }
 
@@ -80,5 +80,5 @@ function read_cookie(name) {
   result && (result = (result[1]).replaceAll("'", '"'));
   var result2 = JSON.parse(result);
   var result3 = JSON.parse(result2);
- return result3;
+  return result3;
 }

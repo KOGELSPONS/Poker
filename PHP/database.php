@@ -12,14 +12,11 @@ if ($conn->connect_error) {
 }
 
 $ID = $_COOKIE["ID"];
-echo $ID;
 $Game = $_COOKIE["game"];
-echo $Game;
 $P1 = $_COOKIE["p1"];
-echo $P1;
 
-$sql = "INSERT INTO PokerGame (ID, Game, Player1)
-VALUES ($ID, $Game, $P1)";
+$sql = "INSERT INTO `PokerGame` (ID, Game, Player1)
+VALUES ($ID, $Game, $P1, "false")";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
@@ -28,4 +25,5 @@ if ($conn->query($sql) === TRUE) {
 }
 
 $conn->close();
+exit();
 ?>

@@ -18,6 +18,7 @@
       <script src="src/setup.js"></script>
       <script src="src/mysql.js"></script>
       <script src="src/playerProfile.js"></script>
+      <script src="src/popups.js"></script>
       <script src="src/game/player1.js"></script>
       <script src="src/game/player2.js"></script>
       <script src="script.js"></script>

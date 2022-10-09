@@ -24,7 +24,7 @@ function gamep2(){
           game.Round = 3;
         } else if (p1.Bet2 < p2.Bet2){
           showlittlebutton();
-          if(p1.Bet2 == p2.Bet2){
+          if(p1.Bet2 == p2.Bet2){ 
             hidebutton();
             game.Round = 2;
           }
