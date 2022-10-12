@@ -3,7 +3,7 @@ function draw() {
   if (gameState == -1){
     hidebutton(); 
     generateID();
-    gameState = 0;
+    gamestate = 0;
   }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 1){

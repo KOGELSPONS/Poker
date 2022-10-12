@@ -23,8 +23,7 @@ if ($conn->connect_error) {
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      $P2 = JSON.stringify($row["Player2"]);
-      setrawcookie("p2", $P2, 0, "/");
+      setcookie("p2", $P2, 0, "/");
     }
   }
   $conn->close();

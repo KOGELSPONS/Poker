@@ -6,11 +6,6 @@ function SQL(){
 
     //Read Cookie
     p2 = read_cookie("p2");
-
-    //Dev
-    console.log(p1);
-    console.log(p2);
-    console.log(game);
     
   }else if (myname == 2){
     bake_cookie("p2", p2);
@@ -19,11 +14,6 @@ function SQL(){
     //Read Cookie
     p1 = read_cookie("p1");
     game = read_cookie("game");
-
-    //Dev
-    console.log(p1);
-    console.log(p2);
-    console.log(game);
     
   }else {
     console.log("||||||||||||||||||||||||||||||||||||||||")
@@ -67,18 +57,37 @@ function createCookie(name, value) {
   document.cookie = ccookie;
 }
 
+//function bake_cookie(name, value) {
+//  var value1 = JSON.stringify(value);
+//  var value2 = JSON.stringify(value1);
+//  var value3 = value2.replaceAll('"', "'");
+//  var cookie = [name, '=', value3, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+//  document.cookie = cookie;
+//}
+
+//function read_cookie(name) {
+//  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+//  result && (result = (result[1]).replaceAll("'", '"'));
+//  var result2 = JSON.parse(result);
+//  var result3 = JSON.parse(result2);
+//  return result3;
+//}
+
 function bake_cookie(name, value) {
-  var value1 = JSON.stringify(value);
-  var value2 = JSON.stringify(value1);
-  var value3 = value2.replaceAll('"', "'");
+  var value2 = JSON.stringify(value);
+  var value3 = encodeURIComponent(value2);
+  console.log(value3);
   var cookie = [name, '=', value3, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
   document.cookie = cookie;
 }
 
 function read_cookie(name) {
   var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-  result && (result = (result[1]).replaceAll("'", '"'));
-  var result2 = JSON.parse(result);
+  result && (result = (result[1]));
+  var result2 = decodeURIComponent(result);
+  console.log(result2);
   var result3 = JSON.parse(result2);
+  console.log(result3);
   return result3;
 }
+

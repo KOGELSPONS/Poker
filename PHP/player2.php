@@ -21,7 +21,7 @@
   if ($result->num_rows > 0) {
   // output data of each row
     while($row = $result->fetch_assoc()) {
-      setrawcookie("game", $row["Game"], 0, "/");
+      setcookie("game", $row["Game"], 0, "/");
     }
   }
 
@@ -31,7 +31,7 @@
   if ($result->num_rows > 0) {
   // output data of each row
     while($row = $result->fetch_assoc()) {
-      setrawcookie("p1", $row["Player1"], 0, "/");
+      setcookie("p1", $row["Player1"], 0, "/");
     }
   }
 

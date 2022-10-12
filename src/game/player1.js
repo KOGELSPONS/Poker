@@ -1,11 +1,13 @@
 function gamep1(){
   if(game.Round == 1){
-    popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round);
+    popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round, '', '');
     popup.show();
+    popup.timerCountDown();
     showfullbutton();
+
     if(p1.Bet1 > 0){
       hidebutton();
-        popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet1 + "$");
+        popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet1 + "$", '');
       popup.show();
       if(p2.Bet1 > 0){
         if(p1.Bet1 == p2.Bet1){
