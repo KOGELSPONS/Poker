@@ -20,6 +20,13 @@ function draw() {
     updatevisual();
       gamep1();
 
+  }else if(gameState == 10){
+    if(myname == 1 && p2 != null){
+      gameState =1
+    }
+    if(myname == 2 && p1 != null){
+      gameState =1
+    }
   }
 }
 
@@ -125,7 +132,7 @@ function mouseClicked() {
         console.log("HOST");
         myname = 1;
         createCookie("myname", myname);
-        gameState = 1;
+        gameState = 10;
         bmusic.loop();
         jazz1.loop();
         showfullbutton();

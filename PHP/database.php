@@ -16,7 +16,7 @@ $Game = $_COOKIE["game"];
 $P1 = $_COOKIE["p1"];
 
 $sql = "INSERT INTO `PokerGame` (ID, Game, Player1)
-VALUES ($ID, $Game, $P1, "false")";
+VALUES ($ID, $Game, $P1)";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";

@@ -6,6 +6,9 @@ function SQL(){
 
     //Read Cookie
     p2 = read_cookie("p2");
+    p1 = read_cookie("p1");
+
+    console.log(p2);
     
   }else if (myname == 2){
     bake_cookie("p2", p2);
@@ -56,22 +59,6 @@ function createCookie(name, value) {
   var ccookie = [name, '=', value, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
   document.cookie = ccookie;
 }
-
-//function bake_cookie(name, value) {
-//  var value1 = JSON.stringify(value);
-//  var value2 = JSON.stringify(value1);
-//  var value3 = value2.replaceAll('"', "'");
-//  var cookie = [name, '=', value3, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
-//  document.cookie = cookie;
-//}
-
-//function read_cookie(name) {
-//  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-//  result && (result = (result[1]).replaceAll("'", '"'));
-//  var result2 = JSON.parse(result);
-//  var result3 = JSON.parse(result2);
-//  return result3;
-//}
 
 function bake_cookie(name, value) {
   var value2 = JSON.stringify(value);
