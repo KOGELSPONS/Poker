@@ -21,11 +21,16 @@ function gamep1(){
         }
       }
     }
+    image(card, 427, 247, 66, 106);
+    image(card, 497, 247, 66, 106);
+    image(card, 567, 247, 66, 106);
+    image(card, 637, 247, 66, 106);
+    image(card, 707, 247, 66, 106);
   }else if(game.Round == 2){
     popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round);
     popup.show();
     showfullbutton();
-    if(p1.Bet1 > 0){
+    if(p1.Bet2 > 0){
       hidebutton();
         popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet2 + "$");
         popup.show();
@@ -41,6 +46,8 @@ function gamep1(){
         }
       }
     }
+    image(card, 427, 247, 66, 106);
+    image(card, 497, 247, 66, 106);
   }else if(game.Round == 3){
     popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();
@@ -61,6 +68,7 @@ function gamep1(){
         }
       }
     }
+    image(card, 427, 247, 66, 106);
   }else if(game.Round == 4){
     popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();

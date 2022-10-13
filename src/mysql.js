@@ -6,9 +6,6 @@ function SQL(){
 
     //Read Cookie
     p2 = read_cookie("p2");
-    p1 = read_cookie("p1");
-
-    console.log(p2);
     
   }else if (myname == 2){
     bake_cookie("p2", p2);
@@ -56,25 +53,25 @@ function generateID(){
 }
 
 function createCookie(name, value) {
-  var ccookie = [name, '=', value, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+  let ccookie = [name, '=', value, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
   document.cookie = ccookie;
 }
 
 function bake_cookie(name, value) {
-  var value2 = JSON.stringify(value);
-  var value3 = encodeURIComponent(value2);
-  console.log(value3);
-  var cookie = [name, '=', value3, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+  let value1 = JSON.stringify(value);
+  let value2 = JSON.stringify(value1);
+  let value3 = encodeURIComponent(value2);
+  let cookie = [name, '=', value3, '; domain=.', window.location.host.toString(), '; path=/;'].join('');
   document.cookie = cookie;
 }
 
 function read_cookie(name) {
-  var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+  let result = document.cookie.match(new RegExp(name + '=([^;]+)'));
   result && (result = (result[1]));
-  var result2 = decodeURIComponent(result);
+  let result1 = decodeURIComponent(result);
+  //console.log(result1);
+  let result2 = JSON.parse(result1);
   console.log(result2);
-  var result3 = JSON.parse(result2);
-  console.log(result3);
-  return result3;
+  return result2;
 }
 

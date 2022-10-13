@@ -6,27 +6,38 @@ function draw() {
     gamestate = 0;
   }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800);
+  }else if(gameState == 10){
+    if(myname == 1){
+      if(p2 != null){
+        gameState = 1;
+        bmusic.loop();
+        jazz1.loop();
+        showfullbutton();
+      }
+    } else if(myname == 2){
+      if (p1 != null){
+        newshuffle();
+        game.Hand = new CardHand(game.Hand.cards);
+        game.p1Hand = new CardHand(game.p1Hand.cards);
+        game.p2Hand = new CardHand(game.p2Hand.cards);
+        bmusic.loop();
+        jazz1.loop();
+        showfullbutton();
+        gameState = 1;
+      }
+    }
   }else if(gameState == 1){
-    //Loading screen (When everything loads)
-    setInterval(function(){ 
-      sec += 1;
-    }, 1000);
-    newshuffle();
-    newhand();
-    game.Round = 1;
-    gameState = 2;
+    setInterval(sec += 1, 1000);
+    if (sec == 5){
+      game.Round = 1;
+      gameState = 2;
+    }else if (sec == 10){
+      sec = 0;
+    }
   }else if(gameState == 2){
     pokergame();
     updatevisual();
-      gamep1();
-
-  }else if(gameState == 10){
-    if(myname == 1 && p2 != null){
-      gameState =1
-    }
-    if(myname == 2 && p1 != null){
-      gameState =1
-    }
+    gamep1();
   }
 }
 
@@ -121,29 +132,36 @@ function keyPressed(){
     console.log(p2);
     console.log(game);
   }
+  if (keyCode === 53) { // 5
+    game.Hand = new CardHand(game.Hand.cards);
+    game.p1Hand = new CardHand(game.p1Hand.cards);
+    game.p2Hand = new CardHand(game.p2Hand.cards);
+    console.log(game.Hand);
+    console.log(game.p1Hand);
+    console.log(game.p2Hand);
+  }
 }
 
 function mouseClicked() {
   //Console log click position
-  //console.log(mouseX + " " + mouseY);
+  console.log(mouseX + " " + mouseY);
   if (gameState == 0) {
     if (mouseY > 120 && mouseY < 680) {
       if (mouseX > 65 && mouseX < 400) {
         console.log("HOST");
+        newshuffle();
+        newhand();
+        //p2 = null;
         myname = 1;
         createCookie("myname", myname);
         gameState = 10;
-        bmusic.loop();
-        jazz1.loop();
-        showfullbutton();
+        
       } if (mouseX > 800 && mouseX < 1130) {
         console.log("JOIN");
+        p1 = null;
         myname = 2;
         createCookie("myname", myname);
-        gameState = 1;
-        bmusic.loop();
-        jazz1.loop();
-        showfullbutton();
+        gameState = 10;
       }
     }
   }

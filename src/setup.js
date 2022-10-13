@@ -16,7 +16,7 @@
     let playerProfile2;
     let popup ;
     var activebutton = false;
-    var sec;
+    var sec = 0;
   //HTML DATA
     var chipsholder = document.getElementById("chipsholder");
     var popupFade = 255;
@@ -49,15 +49,15 @@
 
     //Flush
     p1.Bet2 = 0;
-    p2.Bet2 = 0;
+    p2.Bet2 = 10;
 
     //Pre River
     p1.Bet3 = 0;
-    p2.Bet3 = 0;
+    p2.Bet3 = 10;
 
     //River
     p1.Bet4 = 0; // -1 fold
-    p2.Bet4 = 0; // -1 fold
+    p2.Bet4 = 10; // -1 fold
 
   //Sounds
     var sounds = [];
@@ -66,7 +66,7 @@ function preload() {
   // Images
   table = loadImage('data/table.jpg');
   homescreen = loadImage('data/menuBackground.png')
-
+  card = loadImage('data/card.png');
   // Sound
   bmusic = loadSound('data/sounds/background.mp3');
   sounds.push(chips1 = loadSound('data/sounds/chips1.mp3'));

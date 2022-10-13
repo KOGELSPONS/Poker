@@ -23,7 +23,7 @@ class Popups {
   timerCountDown(){
     if(this.timer > 0){
       this.timer -= 3;
-      console.log(this.timer)
+      //console.log(this.timer)
       loop();
     }
   }

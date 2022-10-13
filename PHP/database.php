@@ -4,19 +4,16 @@ $username = "dbu2034445";
 $password = "#Manderijn118";
 $dbname = "dbs8648412";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
-  die("Connection could not be established");
+  die("Connection failed: " . $conn->connect_error);
 }
 
 $ID = $_COOKIE["ID"];
-$Game = $_COOKIE["game"];
-$P1 = $_COOKIE["p1"];
 
-$sql = "INSERT INTO `PokerGame` (ID, Game, Player1)
-VALUES ($ID, $Game, $P1)";
+$sql = "INSERT INTO PokerGame (ID, Game, Player1, Player2)
+VALUES ($ID, 'null', 'null', 'null')";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
