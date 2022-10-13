@@ -84,20 +84,7 @@ class CardHand {
 
     showHand(x, y) {
         for (let n in this.cards) {
-            //this.cards[n].show(x+(n*70), y);
-            x = x+(n*70)
-            textAlign(CENTER, CENTER);
-            stroke(this.color[0],this.color[1],this.color[2]);
-            strokeWeight(2);
-            fill(255,255,255);
-            rect(x, y, 60, 100);
-            noStroke();
-            fill(this.color[0],this.color[1],this.color[2]);
-            textSize(16);
-            text(this.dispFace, x + 16, y + 16);
-            text(this.dispFace, x + 60 - 16, y + 100- 16);
-            textSize(48);
-            text(this.dispSuit, x + 30, y + 50);
+          this.cards[n].show(x+(n*70), y);
         }
     }
 

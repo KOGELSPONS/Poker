@@ -151,7 +151,7 @@ function mouseClicked() {
         console.log("HOST");
         newshuffle();
         newhand();
-        //p2 = null;
+        p2 = null;
         myname = 1;
         createCookie("myname", myname);
         gameState = 10;
