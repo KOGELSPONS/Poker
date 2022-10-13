@@ -21,11 +21,15 @@ function gamep1(){
         }
       }
     }
-    image(card, 427, 247, 66, 106);
-    image(card, 497, 247, 66, 106);
-    image(card, 567, 247, 66, 106);
-    image(card, 637, 247, 66, 106);
-    image(card, 707, 247, 66, 106);
+    image(card, 427, 247, 66, 106);// Deck 1
+    image(card, 497, 247, 66, 106);// Deck 2
+    image(card, 567, 247, 66, 106);// Deck 3
+    image(card, 637, 247, 66, 106);// Deck 4
+    image(card, 707, 247, 66, 106);// Deck 5
+    image(card, 97, 197, 66, 106); // you
+    image(card, 167, 197, 66, 106); // you
+    image(card, 97, 507, 66, 106); //other player
+    image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 2){
     popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round);
     popup.show();
@@ -46,8 +50,10 @@ function gamep1(){
         }
       }
     }
-    image(card, 427, 247, 66, 106);
-    image(card, 497, 247, 66, 106);
+    image(card, 427, 247, 66, 106);// Deck 1
+    image(card, 497, 247, 66, 106);// Deck 2
+    image(card, 97, 507, 66, 106) //other player
+    image(card, 167, 507, 66, 106) //other player
   }else if(game.Round == 3){
     popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();
@@ -68,7 +74,9 @@ function gamep1(){
         }
       }
     }
-    image(card, 427, 247, 66, 106);
+    image(card, 427, 247, 66, 106);// Deck 1
+    image(card, 97, 507, 66, 106) //other player
+    image(card, 167, 507, 66, 106) //other player
   }else if(game.Round == 4){
     popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();

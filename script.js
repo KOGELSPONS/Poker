@@ -17,12 +17,8 @@ function draw() {
     } else if(myname == 2){
       if (p1 != null){
         newshuffle();
-        game.Hand = new CardHand(game.Hand.cards);
-        game.p1Hand = new CardHand(game.p1Hand.cards);
-        game.p2Hand = new CardHand(game.p2Hand.cards);
         bmusic.loop();
         jazz1.loop();
-        showfullbutton();
         gameState = 1;
       }
     }
@@ -35,9 +31,13 @@ function draw() {
       sec = 0;
     }
   }else if(gameState == 2){
+    setInterval(sec += 1, 1000);
     pokergame();
     updatevisual();
     gamep1();
+    if (sec == 10){
+      sec = 0;
+    }
   }
 }
 
@@ -180,6 +180,11 @@ function newshuffle(){
   deck = new Deck;
   deck.shuffleDeck();
   console.log(deck);
+  if (myname == 2){
+    game.Hand = new CardHand(game.Hand.cards);
+    game.p1Hand = new CardHand(game.p1Hand.cards);
+    game.p2Hand = new CardHand(game.p2Hand.cards);
+  }
 }
 
 function newhand(){
