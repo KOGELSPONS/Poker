@@ -69,7 +69,7 @@ function read_cookie(name) {
   let result = document.cookie.match(new RegExp(name + '=([^;]+)'));
   result && (result = (result[1]));
   let result1 = decodeURIComponent(result);
-  //console.log(result1);
+  console.log(result1);
   let result2 = JSON.parse(result1);
   console.log(result2);
   return result2;
