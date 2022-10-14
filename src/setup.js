@@ -75,6 +75,7 @@ function preload() {
   sounds.push(chips4 = loadSound('data/sounds/chips4.mp3'));
   chipsPush = loadSound('data/sounds/chipsPush.mp3');
   jazz1 = loadSound('data/sounds/jazz1.mp3');
+  loadinggif = loadImage('data/loadingscreen.gif');
   // Videos
   
 }
@@ -114,18 +115,7 @@ function setup() {
     buttonReady.mousePressed(donebetting);
     buttonReady.parent('holder');
     buttonReady.hide();
-
-  //MYSQL BUTTONS
-    buttonTest1 = createButton('CreateSQL');
-    buttonTest1.position(0, 0);
-    buttonTest1.mousePressed(CreateSQL);
-    buttonTest1.parent('holder');
-
-    buttonTest2 = createButton('SQL');
-    buttonTest2.position(0, 50);
-    buttonTest2.mousePressed(SQL);
-    buttonTest2.parent('holder');
-
+  
     generateID();
   //Database
 }

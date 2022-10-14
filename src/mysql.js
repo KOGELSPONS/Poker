@@ -48,7 +48,7 @@ function SQLPlayer2(){
 
 function generateID(){
   ID = 10;
-  //ID = Math.floor(100000 + Math.random() * 900000);
+  ID = Math.floor(100000 + Math.random() * 900000);
   createCookie("ID", ID);
 }
 

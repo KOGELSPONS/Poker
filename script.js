@@ -7,6 +7,8 @@ function draw() {
   }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 10){
+    image(loadinggif, 0, 0, 1200, 800);
+    SQL();
     if(myname == 1){
       if(p2 != null){
         gameState = 1;
@@ -151,11 +153,11 @@ function mouseClicked() {
         console.log("HOST");
         newshuffle();
         newhand();
-        p2 = null;
+        //p2 = null;
         myname = 1;
         createCookie("myname", myname);
         gameState = 10;
-        
+        //CreateSQL();
       } if (mouseX > 800 && mouseX < 1130) {
         console.log("JOIN");
         p1 = null;

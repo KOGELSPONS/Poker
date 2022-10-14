@@ -24,9 +24,11 @@ class Card {
             this.color = [255, 0, 0];
         }
         if (this.face < 10) {
+          //Setting BlowJob Value
             this.BJValue = f+1;
         }
         else {
+          //Setting BlowJob Value
             this.BJValue = 10;
         }
     }
