@@ -12,9 +12,9 @@ class Popups {
     
   }
   show(){
-    fill(0,255,0, this.timer);
+    fill(0,255,0);
     rect(this.x, this.y, this.w, this.h);
-    fill(255,0,0, this.timer)
+    fill(255,0,0);
     textAlign(LEFT, TOP);
     text(this.text1, this.x, this.y)
     text(this.text2, this.x, this.y+50)

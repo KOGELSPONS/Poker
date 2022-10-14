@@ -15,6 +15,7 @@
     let playerProfile1;
     let playerProfile2;
     let popup ;
+    let popupstate ;
     var activebutton = false;
     var sec = 0;
   //HTML DATA
@@ -59,6 +60,10 @@
     p1.Bet4 = 0; // -1 fold
     p2.Bet4 = 10; // -1 fold
 
+    //Total bet
+    p1.Bets = 0;
+    p2.Bets = 0;
+
   //Sounds
     var sounds = [];
 
@@ -76,6 +81,7 @@ function preload() {
   chipsPush = loadSound('data/sounds/chipsPush.mp3');
   jazz1 = loadSound('data/sounds/jazz1.mp3');
   loadinggif = loadImage('data/loadingscreen.gif');
+  continueimage = loadImage('data/continue.png');
   // Videos
   
 }
@@ -87,6 +93,9 @@ function setup() {
   
     background(255);
     frameRate(Frate);
+
+  //Interval
+    setInterval(counter(), 1000);
 
   //Sound
     bmusic.setVolume(0.15);

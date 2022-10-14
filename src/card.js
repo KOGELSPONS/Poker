@@ -85,24 +85,9 @@ class CardHand {
     }
 
     showHand(x, y) {
-        for (let n in this.cards) {
-          if (myname == 1){
-            this.cards[n].show(x+(n*70), y);
-          }else if (myname == 2){
-            textAlign(CENTER, CENTER);
-            stroke(this.cards[n].color[0],this.cards[n].color[1],this.cards[n].color[2]);
-            strokeWeight(2);
-            fill(255,255,255);
-            rect(x, y, 60, 100);
-            noStroke();
-            fill(this.cards[n].color[0],this.cards[n].color[1],this.cards[n].color[2]);
-            textSize(16);
-            text(this.cards[n].dispFace, x + 16, y + 16);
-            text(this.cards[n].dispFace, x + 60 - 16, y + 100- 16);
-            textSize(48);
-            text(this.cards[n].dispSuit, x + 30, y + 50);
-          }
-        }
+      for (let n in this.cards) {
+        this.cards[n].show(x+(n*70), y);
+      }
     }
 
     shuffleHand() {

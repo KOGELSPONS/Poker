@@ -25,11 +25,11 @@
     </div>
     <div id="holder" style="position: relative;"> 
       <div id="chipsholder" class="chips">
-		    <div class="pokerchip white" onclick="addChips1();"></div>
-		    <div class="pokerchip red" onclick="addChips5();"></div>
-		    <div class="pokerchip blue" onclick="addChips10();"></div>
-		    <div class="pokerchip green" onclick="addChips25();"></div>
-		    <div class="pokerchip black" onclick="addChips100();"></div>
+		    <div class="pokerchip white" onclick="addChips(1);"></div>
+		    <div class="pokerchip red" onclick="addChips(5);"></div>
+		    <div class="pokerchip blue" onclick="addChips(10);"></div>
+		    <div class="pokerchip green" onclick="addChips(25);"></div>
+		    <div class="pokerchip black" onclick="addChips(100);"></div>
 	    </div>
     </div>
   </body>

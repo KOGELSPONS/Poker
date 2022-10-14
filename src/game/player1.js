@@ -1,15 +1,21 @@
-function game1(){
+function gamep1(){
+  if (p2.Bet4 == -1){
+    playerwin();
+  } else if (p1.Bet4 == -1){
+    playerlost();
+  }
+  game.Pot = p1.Bets + p2.Bets;
+  p1.Bets = p1.Bet1 + p1.Bet2 + p1.Bet3 + p1.Bet4;
+  popupstate = new Popups(W-300, 100, 190, 45, 255, "Round:"+ game.Round, '', '');
+  popupstate.show();
   if(game.Round == 1){
-    popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round, '', '');
-    popup.show();
     showfullbutton();
-
     if(p1.Bet1 > 0){
       hidebutton();
-      popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet1 + "$", '');
+      popup = new Popups(W-300, H-200, 250, 150, 255, "Player 1", "betted:"+ p1.Bet1 + "$", '');
       popup.show();
       if(p2.Bet1 > 0){
-        popup = new Popups(W-300, H-200, 250, 150,255, "Player 2", "betted:"+ p2.Bet1 + "$", '');
+        popup = new Popups(W-300, H-200, 250, 150, 255, "Player 2", "betted:"+ p2.Bet1 + "$", '');
         popup.show();
         if(p1.Bet1 == p2.Bet1){
           game.Round = 2;
@@ -32,12 +38,11 @@ function game1(){
     image(card, 97, 507, 66, 106); //other player
     image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 2){
-    popup = new Popups(W-300, H-200, 250, 150,255, "Round:"+ game.Round);
     popup.show();
     showfullbutton();
     if(p1.Bet2 > 0){
       hidebutton();
-        popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet2 + "$");
+        popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet2 + "$", '');
         popup.show();
       if(p2.Bet2 > 0){
         popup = new Popups(W-300, H-200, 250, 150,255, "Player 2", "betted:"+ p2.Bet2 + "$", '');
@@ -55,15 +60,14 @@ function game1(){
     }
     image(card, 427, 247, 66, 106);// Deck 1
     image(card, 497, 247, 66, 106);// Deck 2
-    image(card, 97, 507, 66, 106) //other player
-    image(card, 167, 507, 66, 106) //other player
+    image(card, 97, 507, 66, 106); //other player
+    image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 3){
-    popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();
     showfullbutton();
     if(p1.Bet3 > 0){
       hidebutton();
-      popup = new Popups(W-300, H-200, 250, 150, "Player 1", "betted:"+ p1.Bet3 + "$");
+      popup = new Popups(W-300, H-200, 250, 150, "Player 1", "betted:"+ p1.Bet3 + "$", '');
       popup.show();
       if(p2.Bet3 > 0){
         popup = new Popups(W-300, H-200, 250, 150,255, "Player 2", "betted:"+ p2.Bet3 + "$", '');
@@ -80,15 +84,14 @@ function game1(){
       }
     }
     image(card, 427, 247, 66, 106);// Deck 1
-    image(card, 97, 507, 66, 106) //other player
-    image(card, 167, 507, 66, 106) //other player
+    image(card, 97, 507, 66, 106); //other player
+    image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 4){
-    popup = new Popups(W-300, H-200, 250, 150, "Round:"+ game.Round);
     popup.show();
     showfullbutton();
     if(p1.Bet4 > 0){
       hidebutton();
-      popup = new Popups(W-300, H-200, 250, 150, "Player 1", "betted:"+ p1.Bet4 + "$");
+      popup = new Popups(W-300, H-200, 250, 150, "Player 1", "betted:"+ p1.Bet4 + "$", '');
       popup.show();
       if(p2.Bet4 > 0){
         popup = new Popups(W-300, H-200, 250, 150,255, "Player 2", "betted:"+ p2.Bet4 + "$", '');
@@ -104,7 +107,9 @@ function game1(){
         }
       }
     }
+    image(card, 97, 507, 66, 106); //other player
+    image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 5){
-      console.log("Checking!!!")
+    checkwinner();
   }
 }
