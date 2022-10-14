@@ -8,27 +8,36 @@ function draw() {
     image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 10){
     image(loadinggif, 0, 0, 1200, 800);
-    if (sec == 5){
+    setInterval(counter(), 1000);
+    if (sec == 10){
       SQL();
     }
     if(myname == 1){
       if(p2 != null){
+        SQL();
         gameState = 1;
+        sec = 0;
         showfullbutton();
       }
     } else if(myname == 2){
       if (p1 != null){
+        SQL();
         newshuffle();
+        sec = 0;
         gameState = 1;
       }
     }
   }else if(gameState == 1){
+    setInterval(counter(), 1000);
+    if (sec == 5){
       bmusic.loop();
       jazz1.loop();
       game.Round = 1;
       gameState = 2;
+    }
   }else if(gameState == 2){
-    if (sec == 5){
+    setInterval(counter(), 1000);
+    if (sec == 10){
       SQL();
     }
     updatevisual();
@@ -43,7 +52,7 @@ function updatevisual(){
   playerProfile2 = new PlayerProfile(100,410,200,200, p2.Name, p2.Chips - p2.Bets);
   playerProfile1.show();
   playerProfile2.show();
-    GameProfile = new Popups(430,400,300,150,255, "Pot: " + game.Pot, "P1 Bet: " + p1.Bets, "P2 Bet: " + p2.Bets);
+  GameProfile = new Popups(430,400,300,150,255, "Pot: " + game.Pot, "P1 Bet: " + p1.Bets, "P2 Bet: " + p2.Bets);
   GameProfile.show();
   //popup.show();
   if (myname == 1){
@@ -52,7 +61,7 @@ function updatevisual(){
     game.p2Hand.showHand(100,510);
     gamep1();
   } else if (myname == 2){
-    showpgamecards(430,250);
+    showgamecards(430,250);
     showp1cards(100,200);
     showp2cards(100,510);
     gamep2();
@@ -63,10 +72,11 @@ function updatevisual(){
 }
 
 function counter(){
-  if (sec == 10){
+  if (sec == 20){
     sec = 0;
   }
   sec ++;
+  console.log(sec);
 }
 
 //SOMETHING PRESSED!

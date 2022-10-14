@@ -46,19 +46,19 @@
 
     //Blind bet
     p1.Bet1 = 0;
-    p2.Bet1 = 10;
+    p2.Bet1 = 0;
 
     //Flush
     p1.Bet2 = 0;
-    p2.Bet2 = 10;
+    p2.Bet2 = 0;
 
     //Pre River
     p1.Bet3 = 0;
-    p2.Bet3 = 10;
+    p2.Bet3 = 0;
 
     //River
     p1.Bet4 = 0; // -1 fold
-    p2.Bet4 = 10; // -1 fold
+    p2.Bet4 = 0; // -1 fold
 
     //Total bet
     p1.Bets = 0;

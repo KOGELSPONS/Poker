@@ -9,7 +9,6 @@ function gamep2(){
   popupstate.show();
   if(game.Round == 1){
     if (p1.Bet1 > 0){
-      popup.show();
       showfullbutton();
       popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet1 + "$", '');
       popup.show();
@@ -30,7 +29,6 @@ function gamep2(){
     image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 2){
     if (p1.Bet2 > 0){
-      popup.show();
       showfullbutton();
       popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet2 + "$", '');
       popup.show();
@@ -46,7 +44,6 @@ function gamep2(){
     image(card, 167, 197, 66, 106); //other player
   }else if(game.Round == 3){
     if (p1.Bet3 > 0){
-      popup.show();
       showfullbutton();
       popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet3 + "$", '');
       popup.show();
@@ -61,7 +58,6 @@ function gamep2(){
     image(card, 167, 197, 66, 106); //other player
   }else if(game.Round == 4){
     if (p1.Bet4 > 0){
-      popup.show();
       showfullbutton();
       popup = new Popups(W-300, H-200, 250, 150,255, "Player 1", "betted:"+ p1.Bet4 + "$", '');
       popup.show();
