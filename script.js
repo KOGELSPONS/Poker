@@ -40,7 +40,9 @@ function draw() {
     if (sec == 10){
       SQL();
     }
-    updatevisual();
+    if (sec == 4 || 8 || 12 || 16 || 20){
+      updatevisual();
+    }
   }else if(gameState == 5){
     image(continueimage, 0, 0, 1200, 800);
   }
@@ -60,7 +62,7 @@ function updatevisual(){
     game.p1Hand.showHand(100,200);
     game.p2Hand.showHand(100,510);
     gamep1();
-  } else if (myname == 2){
+  } else if (myname == 2){*-
     showgamecards(430,250);
     showp1cards(100,200);
     showp2cards(100,510);
@@ -76,7 +78,6 @@ function counter(){
     sec = 0;
   }
   sec ++;
-  console.log(sec);
 }
 
 //SOMETHING PRESSED!
@@ -324,20 +325,20 @@ function showp1cards(x ,y){
   }
 }
 
-function showp2cards(p, x ,y){
+function showp2cards(x ,y){
   for (let n in game.p2Hand.cards) {
-    x2  = x+(n*70);
+    x2 = x+(n*70);
     textAlign(CENTER, CENTER);
     stroke(game.p2Hand.cards[n].color[0],game.p2Hand.cards[n].color[1],game.p2Hand.cards[n].color[2]);
     strokeWeight(2);
     fill(255,255,255);
-    rect(x2, y, 60, 100);
+    rect(x2 , y, 60, 100);
     noStroke();
     fill(game.p2Hand.cards[n].color[0],game.p2Hand.cards[n].color[1],game.p2Hand.cards[n].color[2]);
     textSize(16);
-    text(game.p2Hand.cards[n].dispFace, x2 + 16, y + 16);
-    text(game.p2Hand.cards[n].dispFace, x2 + 60 - 16, y + 100- 16);
+    text(game.p2Hand.cards[n].dispFace, x2  + 16, y + 16);
+    text(game.p2Hand.cards[n].dispFace, x2  + 60 - 16, y + 100- 16);
     textSize(48);
-    text(game.p2Hand.cards[n].dispSuit, x2 + 30, y + 50);
+    text(game.p2Hand.cards[n].dispSuit, x2  + 30, y + 50);
   }
 }

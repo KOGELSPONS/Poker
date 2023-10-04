@@ -110,6 +110,7 @@ function gamep1(){
     image(card, 97, 507, 66, 106); //other player
     image(card, 167, 507, 66, 106); //other player
   }else if(game.Round == 5){
+    console.log("winner!")
     checkwinner();
   }
 }
