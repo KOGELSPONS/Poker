@@ -3,7 +3,7 @@ function draw() {
   if (gameState == -1){
     hidebutton(); 
     generateID();
-    gamestate = 0;
+    gameState = 0;
   }else if(gameState == 0){
     image(homescreen, 0, 0, 1200, 800);
   }else if(gameState == 10){
@@ -62,7 +62,7 @@ function updatevisual(){
     game.p1Hand.showHand(100,200);
     game.p2Hand.showHand(100,510);
     gamep1();
-  } else if (myname == 2){*-
+  } else if (myname == 2){
     showgamecards(430,250);
     showp1cards(100,200);
     showp2cards(100,510);
